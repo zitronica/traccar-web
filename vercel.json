@@ -7,8 +7,8 @@
       "destination": "https://tracker-server.zitronica.co.mz/api/$1"
     },
     {
-      "source": "/socket",
-      "destination": "https://tracker-server.zitronica.co.mz/socket"
+      "source": "/api/socket",
+      "destination": "wss://tracker-server.zitronica.co.mz/api/socket"
     },
     {
       "source": "/(.*)",
