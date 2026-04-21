@@ -8,7 +8,7 @@
     },
     {
       "source": "/api/socket",
-      "destination": "wss://tracker-server.zitronica.co.mz/api/socket"
+      "destination": "wss://tracker-server.zitronica.co.mz/api/socket/$1"
     },
     {
       "source": "/(.*)",
