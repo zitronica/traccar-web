@@ -102,8 +102,7 @@
 
     React.useEffect(() => {
       if (initialized) {
-        const url = window.location.protocol + '//' + window.location.host;
-        const socket = new WebSocket('ws' + url.substring(4) + '/api/socket');
+        const socket = new WebSocket(import.meta.env.VITE_SOCKET_BASE_URL + '/api/socket');
         socket.onmessage = (event) => {
           const data = JSON.parse(event.data);
           const updatedPositions = {};

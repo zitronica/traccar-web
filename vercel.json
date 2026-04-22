@@ -3,10 +3,6 @@
   "outputDirectory": "build",
   "rewrites": [
     {
-      "source": "/api/socket",
-      "destination": "https://tracker-server.zitronica.co.mz/api/socket"
-    },
-    {
       "source": "/api/:path*",
       "destination": "https://tracker-server.zitronica.co.mz/api/:path*"
     },
