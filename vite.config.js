@@ -10,10 +10,10 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       port: 3000,
-      proxy: {
-        '/api/socket': env.API_SOCKET_URL,
-        '/api': env.API_HTTP_URL,
-      },
+      // proxy: {
+      //   '/api/socket': env.API_SOCKET_URL,
+      //   '/api': env.API_HTTP_URL,
+      // },
     },
     build: {
       outDir: 'build',

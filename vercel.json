@@ -3,12 +3,12 @@
   "outputDirectory": "build",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://tracker-server.zitronica.co.mz/api/$1"
+      "source": "/api/socket",
+      "destination": "https://tracker-server.zitronica.co.mz/api/socket"
     },
     {
-      "source": "/api/socket",
-      "destination": "wss://tracker-server.zitronica.co.mz/api/socket/$1"
+      "source": "/api/:path*",
+      "destination": "https://tracker-server.zitronica.co.mz/api/:path*"
     },
     {
       "source": "/(.*)",
