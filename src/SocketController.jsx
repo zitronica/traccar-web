@@ -82,11 +82,11 @@ const SocketController = () => {
       dispatch(sessionActions.updateSocket(false));
       if (event.code !== logoutCode) {
         try {
-          const devicesResponse = await fetch('/api/devices');
+          const devicesResponse = await fetch('/api/devices', { credentials: 'include' });
           if (devicesResponse.ok) {
             dispatch(devicesActions.update(await devicesResponse.json()));
           }
-          const positionsResponse = await fetch('/api/positions');
+          const positionsResponse = await fetch('/api/positions', { credentials: 'include' });
           if (positionsResponse.ok) {
             dispatch(sessionActions.updatePositions(await positionsResponse.json()));
           }
@@ -143,7 +143,7 @@ const SocketController = () => {
     async (message) => {
       const eventId = message.data.eventId;
       if (eventId) {
-        const response = await fetch(`/api/events/${eventId}`);
+        const response = await fetch(`/api/events/${eventId}`, { credentials: 'include' });
         if (response.ok) {
           const event = await response.json();
           const eventWithMessage = {

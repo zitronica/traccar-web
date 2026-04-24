@@ -84,7 +84,7 @@ const Navigation = () => {
 
     if (searchParams.has('token')) {
       const token = searchParams.get('token');
-      await fetch(`/api/session?token=${encodeURIComponent(token)}`);
+      await fetch(`/api/session?token=${encodeURIComponent(token)}`, { credentials: 'include', });
       newParams.delete('token');
     }
 

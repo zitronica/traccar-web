@@ -78,13 +78,14 @@ const BottomMenu = () => {
         };
         await fetch(`/api/users/${user.id}`, {
           method: 'PUT',
+          credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(updatedUser),
         });
       }
     }
 
-    await fetch('/api/session', { method: 'DELETE' });
+    await fetch('/api/session', { credentials: 'include', method: 'DELETE' });
     nativePostMessage('logout');
     navigate('/login');
     dispatch(sessionActions.updateUser(null));

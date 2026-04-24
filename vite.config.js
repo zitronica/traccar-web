@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       proxy: {
-        '/api': 'http://localhost:8082',
+        '/api': 'https://demo.traccar.org',
       },
     },
     build: {

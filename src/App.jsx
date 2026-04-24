@@ -50,7 +50,7 @@ const App = () => {
 
   useEffectAsync(async () => {
     if (!user) {
-      const response = await fetch('/api/session');
+      const response = await fetch('/api/session', { credentials: 'include' });
       if (response.ok) {
         dispatch(sessionActions.updateUser(await response.json()));
       } else {

@@ -22,6 +22,7 @@ export const generateLoginToken = async () => {
     try {
       const expiration = dayjs().add(6, 'months').toISOString();
       const response = await fetch('/api/session/token', {
+        credentials: 'include',
         method: 'POST',
         body: new URLSearchParams(`expiration=${expiration}`),
       });
