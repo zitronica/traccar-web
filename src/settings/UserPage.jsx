@@ -92,6 +92,7 @@ const UserPage = () => {
 
   const handleRevokeToken = useCatch(async () => {
     await fetchOrThrow('/api/session/token/revoke', {
+      credentials: 'include',
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({ token: revokeToken }).toString(),

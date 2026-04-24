@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       proxy: {
-        '/api': 'https://demo.traccar.org',
+        '/api': 'https://tracker-server.zitronica.co.mz',
       },
     },
     build: {

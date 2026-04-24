@@ -39,7 +39,7 @@ const UsersPage = () => {
   const [temporary, setTemporary] = useState(false);
 
   const handleLogin = useCatch(async (userId) => {
-    await fetchOrThrow(`/api/session/${userId}`);
+    await fetchOrThrow(`/api/session/${userId}`, { credentials: 'include' });
     window.location.replace('/');
   });
 

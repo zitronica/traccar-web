@@ -135,7 +135,7 @@ const LoginPage = () => {
   };
 
   const handleTokenLogin = useCatch(async (token) => {
-    const response = await fetchOrThrow(`/api/session?token=${encodeURIComponent(token)}`);
+    const response = await fetchOrThrow(`/api/session?token=${encodeURIComponent(token)}`, { credentials: 'include' });
     const user = await response.json();
     dispatch(sessionActions.updateUser(user));
     navigate('/');

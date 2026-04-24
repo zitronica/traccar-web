@@ -82,6 +82,7 @@ const PreferencesPage = () => {
   const generateToken = useCatch(async () => {
     const expiration = dayjs(tokenExpiration, 'YYYY-MM-DD').toISOString();
     const response = await fetchOrThrow('/api/session/token', {
+      credentials: 'include',
       method: 'POST',
       body: new URLSearchParams(`expiration=${expiration}`),
     });
