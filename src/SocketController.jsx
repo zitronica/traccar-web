@@ -71,7 +71,7 @@ const SocketController = () => {
     if (socketRef.current && socketRef.current.readyState !== WebSocket.CLOSED) {
       socketRef.current.close();
     }
-    const socket = new WebSocket(`${import.meta.env.VITE_SOCKET_BASE_URL}/api/socket`);
+    const socket = new WebSocket('/api/socket');
     socketRef.current = socket;
 
     socket.onopen = () => {
@@ -82,11 +82,11 @@ const SocketController = () => {
       dispatch(sessionActions.updateSocket(false));
       if (event.code !== logoutCode) {
         try {
-          const devicesResponse = await fetch('/api/devices', { credentials: 'include' });
+          const devicesResponse = await fetch('/api/devices');
           if (devicesResponse.ok) {
             dispatch(devicesActions.update(await devicesResponse.json()));
           }
-          const positionsResponse = await fetch('/api/positions', { credentials: 'include' });
+          const positionsResponse = await fetch('/api/positions');
           if (positionsResponse.ok) {
             dispatch(sessionActions.updatePositions(await positionsResponse.json()));
           }
@@ -143,7 +143,7 @@ const SocketController = () => {
     async (message) => {
       const eventId = message.data.eventId;
       if (eventId) {
-        const response = await fetch(`/api/events/${eventId}`, { credentials: 'include' });
+        const response = await fetch(`/api/events/${eventId}`);
         if (response.ok) {
           const event = await response.json();
           const eventWithMessage = {

@@ -25,7 +25,6 @@
         if (server.newServer) {
           const response = await fetch('/api/users', {
             method: 'POST',
-            credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: email, email, password }),
           });
@@ -91,7 +90,7 @@
 
     React.useEffect(() => {
       const fetchData = async () => {
-        const devicesResponse = await fetch('/api/devices', { credentials: 'include' });
+        const devicesResponse = await fetch('/api/devices');
         if (devicesResponse.ok) {
           setDevices(await devicesResponse.json());
         }
@@ -104,7 +103,7 @@
 
     React.useEffect(() => {
       if (initialized) {
-        const socket = new WebSocket(import.meta.env.VITE_SOCKET_BASE_URL + '/api/socket');
+        const socket = new WebSocket('/api/socket');
         socket.onmessage = (event) => {
           const data = JSON.parse(event.data);
           const updatedPositions = {};
@@ -119,7 +118,6 @@
       const fetchData = async () => {
         const id = prompt('Enter device id');
         const response = await fetch('/api/devices', {
-          credentials: 'include',
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -137,7 +135,7 @@
     const handleLogout = (event) => {
       event.preventDefault();
       const fetchData = async () => {
-        await fetch('/api/session', { credentials: 'include', method: 'DELETE' });
+        await fetch('/api/session', { method: 'DELETE' });
         setUser(null);
       }
       fetchData();
@@ -208,7 +206,7 @@
 
     React.useEffect(() => {
       const fetchData = async () => {
-        const serverResponse = await fetch('/api/server', { credentials: 'include' });
+        const serverResponse = await fetch('/api/server');
         if (serverResponse.ok) {
           setServer(await serverResponse.json());
         }

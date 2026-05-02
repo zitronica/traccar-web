@@ -15,7 +15,7 @@ const ServerProvider = ({ children }) => {
   useEffectAsync(async () => {
     if (!error) {
       try {
-        const response = await fetch('/api/server', { credentials: 'include' });
+        const response = await fetch('/api/server');
         if (response.ok) {
           dispatch(sessionActions.updateServer(await response.json()));
         } else {

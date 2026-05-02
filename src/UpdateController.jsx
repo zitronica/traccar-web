@@ -28,7 +28,6 @@ const UpdateController = () => {
           }
 
           const newSW = await fetch(swUrl, {
-            credentials: 'include',
             cache: 'no-store',
             headers: {
               cache: 'no-store',

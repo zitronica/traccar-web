@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 3000,
       proxy: {
+        // '/api/socket': 'ws://localhost:8082',
+        // '/api': 'http://localhost:8082',
+        '/api/socket': 'wss://tracker-server.zitronica.co.mz',
         '/api': 'https://tracker-server.zitronica.co.mz',
       },
     },
